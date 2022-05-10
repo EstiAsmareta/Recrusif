@@ -1,0 +1,100 @@
+#include <iostream>
+#include<stdlib.h>
+
+int main (){
+  int X,i,sisa;
+  int T[10];
+  int jum=0;
+//inisialisasi X bilangan input, i untuk iterasi, sisa untuk digit yang belum diproses
+//T set array statis 10
+//jum untuk jumlah digit
+
+//set array untuk output
+  for (i=0;i<10;i++){
+    T[i]=0;
+  }
+
+//baca bilangan bilangan integer
+  scanf("%d", &X);
+
+//baca angka depan bilangan
+  sisa=X%10;
+
+//jika angka depan negatif
+  if(X<0){
+    printf ("0\n");
+  }
+//jika angka depan lebih dari atau sama dengan nol
+//dan jumlah masukan tidak lebih dari 100, proses
+  else {
+    while ((X>=0) && (jum<100)) {
+    if (X==0){
+      T[0]++;
+      jum++;
+      }
+
+//jika angka depan atau angka belakang tidak sama dengan 0
+  else{
+    while ((X/10!=0)||(X%10!=0)) {
+
+//cek angka belakang terlebih dahulu
+    sisa = X%10;
+
+//jika sisa adalah 0, berarti output nilai 0 bertambah satu
+    if (sisa==0){
+      T[0]++;
+      }
+
+//jika sisa adalah 1, berarti output nilai 1 bertambah satu
+    else if (sisa==1){
+      T[1]++;
+      }
+//dst
+    else if (sisa==2){
+      T[2]++;
+      }
+    else if (sisa==3){
+      T[3]++;
+      }
+    else if (sisa==4){
+      T[4]++;
+      }
+    else if (sisa==5){
+      T[5]++;
+      }
+    else if (sisa==6){
+      T[6]++;
+      }
+    else if (sisa==7){
+      T[7]++;
+      }
+    else if (sisa==8){
+      T[8]++;
+      }
+    else if (sisa==9){
+      T[9]++;
+      }
+
+//cek angka depan
+    X=X/10;
+    }
+    jum++;
+  }
+//baca ulangan seluruh input
+    scanf("%d", &X);
+  }
+}
+
+//cetak jika ketemu
+    if (jum!=0) {
+      printf("%d\n",jum);
+  }
+
+//cetak output yang ada nilainya secara terurut
+    for (i=0;i<10;i++){
+      if (T[i]>0) {
+        printf("%d : %d\n",i,T[i]);
+      }
+    }
+  return 0;
+}
